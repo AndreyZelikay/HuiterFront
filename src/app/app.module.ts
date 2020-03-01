@@ -1,14 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
+import { TwitComponent } from './twit/twit.component';
+import { TapeComponent } from './tape/tape.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TwitComponent,
+    TapeComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

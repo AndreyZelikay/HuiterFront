@@ -1,0 +1,13 @@
+<img src="{{twit.owner.base64Img}}">
+<div class="content">
+  <p class="date">{{twit.date}}</p>
+  <p class = "text">{{twit.body}}</p>
+  <p class="name">{{twit.owner.name}}</p>
+  <p class="tags">{{twit.tags.join('#')}}</p>
+  <i class="material-icons up">arrow_upward</i>
+  <p class="upCounter">{{twit.likes}}</p>
+  <i class="material-icons down">arrow_downward</i>
+  <p class="downCounter">{{twit.dislikes}}</p>
+  <i class="material-icons forum" (click)="showComments = true"> forum </i>
+  <p class="commentsCounter">30</p>
+</div>

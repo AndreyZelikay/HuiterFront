@@ -1,0 +1,52 @@
+html, body{
+  position: static;
+  width: 100%;
+  height: 100%;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 9%;
+  background: #4060A1;
+}
+img {
+  height: 100%;
+  margin-left: 3%;
+}
+
+.context {
+  position: absolute;
+  top: 9%;
+  bottom: 13%;
+  width: 45%;
+  left: 28.5%;
+  height: 78%;
+  overflow: scroll;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  height: 9%;
+  bottom: 0;
+  left: 0;
+  background: #4060A1;
+}
+
+footer p {
+  position: absolute;
+  font-family: "Roboto Light", sans-serif ;
+  font-size: 100%;
+  right: 3%;
+  vertical-align: center;
+}
+
+.twit {
+  margin-top: 5%;
+  position: relative;
+  display: inline-block;
+  min-height: 20%;
+  width: 100%;
+}

@@ -1,0 +1,119 @@
+img {
+  position: absolute;
+  border-radius: 100%;
+  box-shadow: 0 0 7px #666;
+  width: 15%;
+  top: 0;
+  left: 0;
+}
+
+.content {
+  position: absolute;
+  display: inline-block;
+  width: 80%;
+  min-height: 100%;
+  border-radius: 10px;
+  background: rgba(255, 247, 247, 0.97);
+  border: 1px solid #AFB5BD;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  right:0;
+  top:0;
+}
+
+div .date {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 90%;
+}
+.text {
+  position: relative;
+  display: inline-block;
+  margin-top: 45px;
+  margin-left: 15px;
+  margin-bottom: 50px;
+  width: 75%;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+div .name {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 110%;
+}
+
+div .tags {
+  position: absolute;
+  word-wrap: break-word;
+  width: 20%;
+  top: 30px;
+  right: 10px;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+.material-icons.up {
+  position: absolute;
+  color: #4060A1;
+  left: 3%;
+  bottom: 10px;
+}
+
+.upCounter {
+  position: absolute;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 75%;
+  left: 7%;
+  text-align: left;
+  bottom: 10px;
+}
+
+.material-icons.down {
+  position: absolute;
+  color: brown;
+  left: 12%;
+  bottom: 10px;
+}
+
+.downCounter {
+  position: absolute;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 75%;
+  left: 16%;
+  text-align: left;
+  bottom: 10px;
+}
+
+.material-icons.forum {
+  position: absolute;
+  color: orange;
+  left: 20%;
+  bottom: 10px;
+}
+
+.commentsCounter {
+  position: absolute;
+  font-family: Oxygen, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 75%;
+  left: 25%;
+  text-align: left;
+  bottom: 10px;
+}

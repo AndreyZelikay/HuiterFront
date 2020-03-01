@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <header>
+      <img src="../assets/Logo.png">
+    </header>
+
+    <div class="context">
+      <div *ngFor="let twit of twits">
+      <div class="twit">
+        <app-twit [twit]="twit"></app-twit>
+      </div>
+      </div>
+    </div>
+    <footer>
+      <p>
+        In My Opinion<br>
+        Created by Andrei Zelikov, 6 form, 2 course<br>
+        e-mail: andreyzelikay@gmail.com<br>
+      </p>
+    </footer>
+  </body>
+</html>
