@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { TwitComponent } from './twit/twit.component';
 import { TapeComponent } from './tape/tape.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TapeComponent } from './tape/tape.component';
   ],
   imports: [
     BrowserModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

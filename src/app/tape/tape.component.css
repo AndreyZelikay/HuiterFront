@@ -2,51 +2,262 @@ html, body{
   position: static;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+header, footer {
+  position: absolute;
   width: 100%;
-  height: 9%;
+  height: 10%;
+  max-height: 120px;
+  min-height: 90px;
   background: #4060A1;
 }
-img {
+
+header {
+  top: 0;
+  left: 0;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 30px;
   height: 100%;
-  margin-left: 3%;
+  max-height: 120px;
+  min-height: 0;
 }
 
 .context {
   position: absolute;
-  top: 9%;
-  bottom: 13%;
+  top: 11%;
+  bottom: 10%;
   width: 45%;
   left: 28.5%;
-  height: 78%;
+  height: 80%;
   overflow: scroll;
-}
-
-footer {
-  position: fixed;
-  width: 100%;
-  height: 9%;
-  bottom: 0;
-  left: 0;
-  background: #4060A1;
 }
 
 footer p {
   position: absolute;
   font-family: "Roboto Light", sans-serif ;
-  font-size: 100%;
-  right: 3%;
-  vertical-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1rem;
+  right: 20px;
+  text-align: right;
 }
 
 .twit {
   margin-top: 5%;
   position: relative;
   display: inline-block;
-  min-height: 20%;
   width: 100%;
+}
+
+.button.see-more {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.see-more {
+  position: relative;
+  display: inline-block;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 5%;
+  width: 30%;
+  left: 35%;
+  background: #F7F8FB;
+  border-radius: 20px;
+}
+
+.input-field {
+  position: absolute;
+  top: 28.5%;
+  width: 40%;
+  height: 45%;
+  left: 30%;
+  padding-left: 2%;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: #B7AEAE;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+}
+
+.button.my-profile {
+  position: absolute;
+  right: 50px;
+  visibility: hidden;
+}
+
+.button.log-out {
+  position: absolute;
+  right: 180px;
+  visibility: hidden;
+}
+
+.button-text {
+  position: relative;
+  bottom:5px;
+  visibility: visible;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  color: #DEE58D;
+}
+
+.twit.photo {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 50px;
+  width: 75%;
+}
+
+.button.menu {
+  position: absolute;
+  visibility: hidden;
+  top: 28.5%;
+  right: 30%;
+}
+
+.material-icons.menu.icon {
+  position: relative;
+  top: 0;
+  left: 0;
+  visibility: visible;
+}
+
+.filtration {
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 20px;
+  z-index: 1;
+  bottom: -30px;
+  left: 27.5%;
+  width: 45%;
+  height: 50%;
+  background: rgba(255, 247, 247, 0.97);
+  border: 1px solid #AFB5BD;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.user-name-filter,.date-from-filter,.date-to-filter {
+  display: inline-block;
+  top: 10px;
+  height: 80%;
+  position: relative;
+  margin-right: 10px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.user-name-filter {
+  width: 40%;
+}
+
+.date-from-filter, .date-to-filter {
+  width: 27%;
+}
+
+.user-name-filter.input, .date.input {
+  position: absolute;
+  top: -5px;
+  padding-left: 10px;
+  border-radius: 10px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.user-name-filter.input {
+  left: 30%;
+  width: 70%;
+}
+
+.date.input {
+  left: 40%;
+  width: 60%;
+}
+
+@media (max-width: 1400px) {
+  .filtration {
+    position: absolute;
+    padding-top: 10px;
+    padding-left: 20px;
+    z-index: 1;
+    top: 105%;
+    left: 27.5%;
+    width: 45%;
+    max-width: 350px;
+    height: 150px;
+    background: rgba(255, 247, 247, 0.97);
+    border: 1px solid #AFB5BD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+
+  .user-name-filter,.date-from-filter,.date-to-filter {
+    display: block;
+    top: 10px;
+    height: 30%;
+    position: relative;
+    margin-right: 10px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+  }
+
+  .user-name-filter {
+    width: 100%;
+  }
+
+  .date-from-filter, .date-to-filter {
+    width: 100%;
+  }
+
+  .user-name-filter.input, .date.input {
+    position: absolute;
+    top: -3px;
+    padding-left: 10px;
+    border-radius: 10px;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+  }
+
+  .user-name-filter.input {
+    left: 25%;
+    width: 70%;
+    height: 60%;
+  }
+
+  .date.input {
+    left: 25%;
+    width: 40%;
+  }
+}
+
+@media (max-width: 1200px) {
+
 }

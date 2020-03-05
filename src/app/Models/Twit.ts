@@ -3,6 +3,7 @@ import {Comment} from './Comment';
 import {User} from './User';
 
 export class Twit {
+  id: number;
   body: string;
   topic: string;
   tags: Tag[];

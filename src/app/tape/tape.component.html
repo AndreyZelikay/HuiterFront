@@ -1,7 +1,16 @@
 <html>
   <body>
     <header>
-      <img src="../assets/Logo.png">
+      <img class = "logo" src="../../assets/Logo.png">
+      <input class="input-field" placeholder="Find your topic">
+      <button class="button my-profile"><p class="button-text">Andrei</p></button>
+      <button class="button log-out"><p class="button-text">Log out</p></button>
+      <button class="button menu" (click)="showFilters = !showFilters"><i class="material-icons menu icon" >keyboard_arrow_down</i></button>
+      <div class="filtration" *ngIf="showFilters">
+        <label class="user-name-filter">User name<input type="text" placeholder="name" class="user-name-filter input"></label>
+        <label class="date-from-filter">Date from:<input type="text" placeholder="02 03 2020" class="date input"></label>
+        <label class="date-to-filter">Date to:<input type="text" placeholder="02 03 2020" class="date input"></label>
+      </div>
     </header>
 
     <div class="context">
@@ -9,6 +18,9 @@
       <div class="twit">
         <app-twit [twit]="twit"></app-twit>
       </div>
+      </div>
+      <div class="see-more">
+        <button class="button see-more" *ngIf="showButtonSeeMore" (click)="seeMore()">See more</button>
       </div>
     </div>
     <footer>

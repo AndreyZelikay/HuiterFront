@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Twit} from '../Models/Twit';
+import {TapeHttpService} from '../Services/TapeHttpService';
 
 @Component({
   selector: 'app-tape',
@@ -8,36 +9,24 @@ import {Twit} from '../Models/Twit';
 })
 export class TapeComponent implements OnInit {
 
-  twits: Twit[] = [{
-    body: 'body',
-    topic: 'topic',
-    tags: [{
-      body: 'OMG',
-      twits: null
-    }],
-    comments: [{
-      body: 'body',
-      owner: {
-        name: 'andrey',
-        password: null,
-        status: 'USER',
-        base64Img: null,
-        tags: null
-      },
-      twit: null
-    }],
-    date: new Date(),
-    likes: 10,
-    dislikes: 10,
-    owner: {
-      name: 'andrey',
-      password: null,
-      status: 'USER',
-      base64Img: null,
-      tags: null
-    }
-  }];
+  twits: Twit[];
+  showFilters = false;
+  showButtonSeeMore = true;
 
-  ngOnInit() {}
+  constructor(private tapeHttpService: TapeHttpService) {}
 
+  ngOnInit() {
+    this.tapeHttpService.getTwitsInInterval( 0, 10).subscribe(data => this.twits = data);
+  }
+
+  seeMore() {
+    const from = this.twits.length;
+    const to = from + 10;
+    this.tapeHttpService.getTwitsInInterval( from, to).subscribe(data => {
+      if (data.length < 10) {
+        this.showButtonSeeMore = false;
+      }
+      this.twits = this.twits.concat(data);
+    });
+  }
 }
