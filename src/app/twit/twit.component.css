@@ -15,7 +15,7 @@
   margin-top: 0;
   bottom: 0;
   width: 80%;
-  min-height: 18%;
+  min-height: 150px;
   border-radius: 10px;
   background: rgba(255, 247, 247, 0.97);
   border: 1px solid #AFB5BD;
@@ -31,10 +31,11 @@
   font-weight: normal;
   font-size: 90%;
 }
+
 .text {
   position: relative;
   display: inline-block;
-  margin-top: 45px;
+  margin-top: 60px;
   margin-left: 15px;
   margin-bottom: 40px;
   width: 75%;
@@ -57,6 +58,7 @@
 .tags {
   position: absolute;
   word-wrap: break-word;
+  text-align: right;
   width: 20%;
   top: 30px;
   right: 10px;
@@ -75,67 +77,58 @@
   color: #4060A1;
 }
 
-.up-counter {
-  position: absolute;
-  font-family: Oxygen, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 75%;
-  left: 7%;
-  text-align: left;
-  bottom: 10px;
-}
-
-.down-counter {
-  position: absolute;
-  font-family: Oxygen, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 75%;
-  left: 16%;
-  text-align: left;
-  bottom: 10px;
-}
-
 .feedback {
   position: absolute;
-  width: 30%;
-  max-width: 100px;
-  height: 15%;
-  max-height: 30px;
-  left: 3%;
   bottom: 10px;
+  left: 10px;
+  width: 170px;
+  height: 30px;
 }
 
-.comments-counter {
-  position: absolute;
+.feedback-button, .feedback-counter {
+  position: relative;
+  display: inline-block;
+  margin-left: 0;
+}
+
+.feedback-button {
+  visibility: hidden;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.feedback-counter {
   font-family: Oxygen, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 75%;
-  left: 25%;
   text-align: left;
-  bottom: 10px;
+  margin-right: 10px;
 }
 
-button.down, button.forum, button.up {
-  position: absolute;
-  visibility: hidden;
+.twit.photo {
+  position: relative;
+  display: inline-block;
+  margin: 45px 0 40px 15px;
+  width: 75%;
 }
 
-button.down {
-  left: 12%;
-  bottom: 10px;
+.comments {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  width: 80%;
+  left: 15%;
+  right: 5%;
+  bottom: 0;
 }
 
-button.forum {
-  left: 20%;
-  bottom: 10px;
-}
-
-button.up {
-  left: 3%;
-  bottom: 10px;
+.comment {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
 }
 
 

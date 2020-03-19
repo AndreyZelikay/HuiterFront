@@ -1,15 +1,21 @@
-<img src="{{twit.owner.base64Img}}">
+<img class="user-icon" src="{{twit.owner.base64Img}}">
 <div class="content">
   <p class="date">{{twit.date | date}}</p>
-  <p class = "text">{{twit.body}}</p>
+  <p class="text">{{twit.body}}</p>
   <p class="name">{{twit.owner.name}}</p>
-  <p class="tags">{{twit.tags}}</p>
+  <p class="tags">{{tagString}}</p>
   <div class="feedback">
-    <button class="button up"><i class="material-icons">arrow_upward</i></button>
-    <p class="upCounter">{{twit.likes}}</p>
-    <button class = "button down"><i class="material-icons">arrow_downward</i></button>
-    <p class="downCounter">{{twit.dislikes}}</p>
-    <button class="button forum" (click)="showComments = true"><i class="material-icons"> forum </i></button>
-    <p class="comments-counter">30</p>
+    <button class="feedback-button"><i class="material-icons">arrow_upward</i></button>
+    <p class="feedback-counter">{{twit.likes}}</p>
+    <button class="feedback-button"><i class="material-icons">arrow_downward</i></button>
+    <p class="feedback-counter">{{twit.dislikes}}</p>
+    <button class="feedback-button" (click)="onCommentsClick()"><i class="material-icons"> forum </i></button>
+    <p class="feedback-counter">30</p>
   </div>
+</div>
+<div *ngIf="showComments" class="comments">
+  <div *ngFor="let comment of twit.comments">
+    <app-comment class="comment" [comment]="comment"></app-comment>
+  </div>
+  <app-create-comment class="comment" [twit]="twit" (event)="postComment($event)"></app-create-comment>
 </div>

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Twit} from '../Models/Twit';
-import {Tag} from '../Models/Tag';
+import {CommentHttpService} from '../Services/CommentHttpService';
+import {Comment} from '../Models/Comment';
 
 @Component({
   selector: 'app-twit',
@@ -9,15 +10,32 @@ import {Tag} from '../Models/Tag';
 })
 export class TwitComponent implements OnInit {
 
-  @Input()twit: Twit;
+  @Input() twit: Twit;
   showComments = false;
   tagString: string;
 
-  constructor() { }
+  constructor(private commentHttpService: CommentHttpService) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tagString = this.twit.tags.map((value) => {
+      return '#' + value.body;
+    }).join('');
+  }
 
-  initializeValue(twit: Twit) {
-     this.twit = twit;
+  onCommentsClick() {
+    this.showComments = !this.showComments;
+    if (this.showComments) {
+      this.commentHttpService.getComments(this.twit).subscribe((data) => this.twit.comments = data);
+    }
+  }
+
+  postComment(body: string) {
+    const comment = new Comment();
+    comment.twit = this.twit;
+    if (body != null) {
+      comment.body = body;
+      this.commentHttpService.createComment(comment).subscribe((data) => this.twit.comments = data);
+    }
   }
 }
