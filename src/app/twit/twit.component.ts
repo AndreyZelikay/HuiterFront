@@ -13,6 +13,7 @@ export class TwitComponent implements OnInit {
   @Input() twit: Twit;
   showComments = false;
   tagString: string;
+  @Input() currentUserName: string;
 
   constructor(private commentHttpService: CommentHttpService) {
   }

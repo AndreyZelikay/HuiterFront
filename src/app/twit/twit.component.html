@@ -1,4 +1,4 @@
-<img class="user-icon" src="{{twit.owner.base64Img}}">
+<img class="user-icon" src="{{twit.owner.userPhoto.url}}">
 <div class="content">
   <p class="date">{{twit.date | date}}</p>
   <p class="text">{{twit.body}}</p>
@@ -17,5 +17,5 @@
   <div *ngFor="let comment of twit.comments">
     <app-comment class="comment" [comment]="comment"></app-comment>
   </div>
-  <app-create-comment class="comment" [twit]="twit" (event)="postComment($event)"></app-create-comment>
+  <app-create-comment class="comment" [twit]="twit" [userName]="currentUserName" (event)="postComment($event)"></app-create-comment>
 </div>

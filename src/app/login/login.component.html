@@ -1,0 +1,17 @@
+<header>
+  <img class="logo" src="../../assets/Logo.png">
+</header>
+<form class="form" [formGroup]="loginForm">
+  <input type="text" class="input-field" placeholder="name" formControlName="name">
+  <div class="alert" *ngIf="loginForm.controls['name'].invalid && loginForm.controls['name'].touched">
+    This field shouldn't be empty!
+  </div>
+  <input type="password" class="input-field" placeholder="password" formControlName="password">
+  <div class="alert" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+    This field shouldn't be empty!
+  </div>
+  <div class="alert" *ngIf="invalidUser && loginForm.touched">
+    Invalid username or password!
+  </div>
+  <button type="submit" class="submit-button" (click)="loginUser()">Log in</button>
+</form>

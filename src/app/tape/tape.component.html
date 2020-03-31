@@ -1,10 +1,8 @@
-<html>
-<body>
 <header>
   <img class="logo" src="../../assets/Logo.png">
-  <input class="input-field" [(ngModel)]="tags" (ngModelChange)="search()" placeholder="Find your topic">
-  <button class="button my-profile"><p class="button-text">Andrei</p></button>
-  <button class="button log-out"><p class="button-text">Log out</p></button>
+  <input class="input-field" [(ngModel)]="tags" (ngModelChange)="onSearch()" placeholder="Find your topic">
+  <button class="button my-profile" routerLink="/profile"><p class="button-text">{{currentUserName}}</p></button>
+  <button class="button log-out"><p class="button-text" (click)="onLogOutClick()">Log out</p></button>
   <button class="button menu" (click)="showFilters = !showFilters"><i class="material-icons menu icon">keyboard_arrow_down</i>
   </button>
   <div class="filtration" *ngIf="showFilters">
@@ -15,7 +13,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>Date from:</mat-label>
-          <input formControlName="fromDate" matInput [matDatepicker]="fromDatePicker">
+        <input formControlName="fromDate" matInput [matDatepicker]="fromDatePicker">
         <mat-datepicker-toggle matSuffix [for]="fromDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #fromDatePicker></mat-datepicker>
       </mat-form-field>
@@ -25,7 +23,9 @@
         <mat-datepicker-toggle matSuffix [for]="toDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #toDatePicker></mat-datepicker>
       </mat-form-field>
-      <button type="submit" (click)="showFilters = !showFilters; search()" mat-stroked-button class="submit-button">Submit</button>
+      <button type="submit" (click)="showFilters = !showFilters; onSearch()" mat-stroked-button class="submit-button">
+        Submit
+      </button>
       <button (click)="filterForm.reset()" mat-stroked-button color="warn" class="clear-button">Clear</button>
     </form>
   </div>
@@ -33,18 +33,9 @@
 
 <div class="context">
   <div *ngFor="let twit of twits">
-    <app-twit class="twit" [twit]="twit"></app-twit>
+    <app-twit class="twit" [twit]="twit" [currentUserName]="currentUserName" ></app-twit>
   </div>
   <div class="see-more">
     <button class="button see-more" *ngIf="showButtonSeeMore" (click)="seeMore()">See more</button>
   </div>
 </div>
-<footer>
-  <p>
-    In My Opinion<br>
-    Created by Andrei Zelikov, 6 form, 2 course<br>
-    e-mail: andreyzelikay@gmail.com<br>
-  </p>
-</footer>
-</body>
-</html>
