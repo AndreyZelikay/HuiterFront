@@ -1,0 +1,5 @@
+<div class="content">
+  <p class="name">{{userName}}</p>
+  <textarea class="input" #body placeholder="Input your comment..."></textarea>
+  <button class="button-post" (click)="event.emit(body.value); body.value = null">post</button>
+</div>

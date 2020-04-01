@@ -1,0 +1,81 @@
+.heading {
+  width: 20%;
+  left: 40%;
+  text-align: center;
+}
+
+.button-profile {
+  right: 30px;
+  background: transparent;
+  border: none;
+}
+
+.button-profile, .heading, .twit-body-input, .button-post {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.button-profile, .heading {
+  position: absolute;
+  font-size: 2rem;
+  color: #DEE58D;
+  margin: 0 0 0 0;
+  bottom: 25px;
+}
+
+.twit-creation {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  width: 30%;
+  height: 35%;
+  bottom: 30%;
+}
+
+.tags-input,.twit-body-input {
+  position: relative;
+  width: calc(100% - 40px);
+  margin-top: 25px;
+  background: rgba(255, 247, 247, 0.97);
+  border: 1px solid #AFB5BD;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.2rem;
+}
+
+.tags-input {
+  padding: 10px 20px 10px 20px;
+  height: 15%;
+}
+
+.twit-body-input {
+  min-height: 60%;
+  resize: none;
+  padding: 20px 20px 20px 20px;
+}
+
+.button-post {
+  position: relative;
+  width: 40%;
+  margin-top: 20px;
+  left: 30%;
+  height: 15%;
+  border: none;
+  background: rgba(89, 213, 109, 0.97);
+  border-radius: 10px;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+@media (max-width: 1395px) {
+  .heading {
+    bottom: 10px;
+  }
+}
+@media (max-width: 980px) {
+  .button-profile, .heading {
+    font-size: 1.5rem;
+  }
+}

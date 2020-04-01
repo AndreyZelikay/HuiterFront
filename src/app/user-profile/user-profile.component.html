@@ -1,0 +1,21 @@
+<header>
+  <img class="logo" src="../../assets/Logo.png">
+  <p class="my-profile">My profile</p>
+  <button class="button tape" routerLink="/tape"><p class="button-text">Tape</p></button>
+  <button class="button log-out"><p class="button-text" (click)="onLogOutClick()">Log out</p></button>
+</header>
+<div *ngIf="user?.twits != null" class="twit-list">
+  <div class="twit" *ngFor="let twit of user.twits">
+    <div class="twit-body">
+      <app-twit [twit]="twit"></app-twit>
+    </div>
+    <div class="twit-buttons">
+      <button class="button-delete" (click)="onTwitDeleteClick(twit)">Delete</button>
+      <button class="button-refactor">Refactor</button>
+    </div>
+  </div>
+</div>
+<div class="user-tools">
+  <img class="user-icon" src="{{user?.userPhoto.url}}">
+  <button class="create-twit-button" routerLink="/create-twit">Create twit</button>
+</div>

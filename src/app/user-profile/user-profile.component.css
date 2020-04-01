@@ -1,0 +1,202 @@
+.button.tape, .button.log-out {
+  position: absolute;
+  visibility: hidden;
+  bottom: 25px;
+}
+
+.button.tape {
+  right: 30px;
+}
+
+.button.log-out {
+  right: 150px;
+}
+
+.button-text {
+  position: relative;
+  bottom: 0;
+  visibility: visible;
+  outline: none;
+}
+
+.button-text, .my-profile {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2rem;
+  margin: 0 0 0 0;
+  color: #DEE58D;
+}
+
+.my-profile {
+  position: absolute;
+  width: 20%;
+  left: 40%;
+  bottom: 25px;
+  text-align: center;
+}
+
+.twit-list {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  width: 850px;
+  left: calc((100% - 850px) / 2);
+  height: 80%;
+  overflow: scroll;
+}
+
+.twit {
+  margin-top: 5%;
+  position: relative;
+  display: inline-block;
+  min-height: 150px;
+  width: 100%;
+}
+
+.twit-buttons {
+  position: absolute;
+  right: 40px;
+  bottom: -15px;
+  z-index: 1;
+  height: 25%;
+  width: 25%;
+}
+
+.button-delete, .button-refactor {
+  position: relative;
+  display: inline;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  outline: none;
+}
+
+.button-delete {
+  left: 0;
+  border-radius: 20px 0 0 20px;
+  background: #D95050;
+}
+
+.button-refactor {
+  right: 0;
+  border-radius: 0 20px 20px 0;
+  background: #51A334;
+}
+
+.twit-body {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 20%;
+  bottom: 0;
+  height: 100%;
+  width: 80%;
+}
+
+.user-tools {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: calc((100% - 850px) / 2);
+  height: 50%;
+}
+
+.user-icon {
+  position: relative;
+  display: block;
+  top: 20px;
+  left: 20px;
+  right: calc(100% - 90px);
+  border-radius: 100%;
+  width: 70px;
+}
+
+.create-twit-button {
+  position: relative;
+  display: block;
+  top: 40px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+@media (max-width: 1250px) {
+  .button.tape, .button.log-out {
+    position: absolute;
+    right: 30px;
+    visibility: hidden;
+  }
+
+  .button.tape {
+    top: 0;
+  }
+
+  .button.log-out {
+    bottom: 10px;
+  }
+
+  .button-text {
+    position: relative;
+    bottom: 0;
+    visibility: visible;
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.65rem;
+    color: #DEE58D;
+    margin: 0 0 0 0;
+    outline: none;
+  }
+}
+
+@media (max-width: 870px) {
+  .twit-list {
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    width: 100%;
+    left: 0;
+    height: 80%;
+    overflow: scroll;
+  }
+}
+
+@media (max-height: 900px) {
+  .twit-list {
+    position: absolute;
+    top: 90px;
+    bottom: 90px;
+    width: 850px;
+    left: calc((100% - 850px) / 2);
+    height: calc(100% - 180px);
+    overflow: scroll;
+  }
+
+  @media (max-width: 870px) {
+    .twit-list {
+      position: absolute;
+      top: 90px;
+      bottom: 90px;
+      width: 100%;
+      left: 0;
+      height: calc(100% - 180px);
+      overflow: scroll;
+    }
+  }
+}
+
+@media (max-width: 745px) {
+  .my-profile {
+    position: absolute;
+    width: 20%;
+    left: 40%;
+    bottom: 10px;
+    text-align: center;
+  }
+}
