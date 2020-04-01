@@ -26,6 +26,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'create-twit', component: CreateTwitComponent, canActivate: [AuthGuardService]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
