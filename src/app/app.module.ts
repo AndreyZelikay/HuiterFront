@@ -9,7 +9,14 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CommentComponent} from './comment/comment.component';
 import {CreateCommentComponent} from './create-comment/create-comment.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatDatepickerModule, MatInputModule, MatNativeDateModule} from '@angular/material';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatInputModule,
+  MatNativeDateModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginComponent} from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -53,7 +60,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   providers: [UserDataProvider, {
     provide: HTTP_INTERCEPTORS,

@@ -35,7 +35,6 @@
 
 .tags-input,.twit-body-input {
   position: relative;
-  width: calc(100% - 40px);
   margin-top: 25px;
   background: rgba(255, 247, 247, 0.97);
   border: 1px solid #AFB5BD;
@@ -46,11 +45,17 @@
 }
 
 .tags-input {
-  padding: 10px 20px 10px 20px;
-  height: 15%;
+  width: 100%;
+  min-height: 22%;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  width: 90%;
+  left: 5%;
 }
 
 .twit-body-input {
+  width: calc(100% - 40px);
   min-height: 60%;
   resize: none;
   padding: 20px 20px 20px 20px;

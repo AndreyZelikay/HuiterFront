@@ -1,10 +1,7 @@
 import {Twit} from './Twit';
 
 export class Tag {
+  id: number;
   body: string;
-  twits: Twit[];
-
-  public toString = (): string => {
-    return this.body;
-  }
+  searchCounter: number;
 }

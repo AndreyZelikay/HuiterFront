@@ -27,11 +27,11 @@
 }
 
 .form {
-  width: 40%;
+  width: 500px;
   position: absolute;
-  top: 30%;
-  left: 30%;
-  height: 30%;
+  top: calc((100% - 300px) / 2);
+  left: calc((100% - 500px) / 2);
+  height: 300px;
 }
 .alert{
   margin-top: 20px;
@@ -48,8 +48,14 @@
 
 @media (max-height: 580px) {
   .form {
-    top: 20%;
-    height: 40%;
+    top: calc((100% - 200px) / 2);
+    height: 200px;
   }
+}
 
+@media(max-width: 550px) {
+  .form {
+    width: 300px;
+    left: calc((100% - 300px) / 2);
+  }
 }

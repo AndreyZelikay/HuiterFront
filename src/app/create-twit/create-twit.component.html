@@ -4,7 +4,25 @@
   <button class="button-profile" routerLink="/profile">Back to profile</button>
 </header>
 <div class="twit-creation">
-  <input class="tags-input" placeholder="Input tags">
+  <mat-form-field class="tags-input" floatLabel="never" color="none" f>
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+        {{tag}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input placeholder="Input tag"
+             [(ngModel)]="currentTag"
+             (ngModelChange)="onInput()"
+             [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="[enterCode]"
+             (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete (optionSelected)="selected($event)">
+      <mat-option *ngFor="let tag of availableTags">
+        {{tag}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
   <textarea class="twit-body-input" placeholder="Share your opinion"></textarea>
-  <button class="button-post">Publish</button>
+  <button type="submit" class="button-post" (click)="postTwit()">Publish</button>
 </div>
