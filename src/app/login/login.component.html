@@ -13,5 +13,5 @@
   <div class="alert" *ngIf="invalidUser && loginForm.touched">
     Invalid username or password!
   </div>
-  <button type="submit" class="submit-button" (click)="loginUser()">Log in</button>
+  <button type="submit" class="submit-button" (click)="loginUser(); invalidUser = false">Log in</button>
 </form>
