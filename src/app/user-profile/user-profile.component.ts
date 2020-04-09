@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {UserHttpService} from '../Services/UserHttpService';
-import {User} from '../Models/User';
-import {UserDataProvider} from '../Providers/UserDataProvider';
+import {UserHttpService} from '../services/UserHttpService';
+import {User} from '../models/User';
+import {UserDataProvider} from '../providers/UserDataProvider';
 import {Router} from '@angular/router';
-import {Twit} from '../Models/Twit';
-import {TwitHttpService} from '../Services/TwitHttpService';
+import {Twit} from '../models/Twit';
+import {TwitHttpService} from '../services/TwitHttpService';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,14 +22,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.userDataProvider.storage != null) {
-      this.user = this.userDataProvider.storage;
-    } else {
       this.userHttpService.getUser().subscribe((data) => {
         this.user = data;
         this.user.twits.forEach(twit => twit.owner = this.user);
       });
-    }
   }
 
   onLogOutClick() {

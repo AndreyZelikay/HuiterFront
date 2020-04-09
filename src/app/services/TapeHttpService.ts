@@ -1,6 +1,6 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Twit} from '../Models/Twit';
+import {Twit} from '../models/Twit';
 import {Injectable} from '@angular/core';
 
 @Injectable({

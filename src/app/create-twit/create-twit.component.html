@@ -12,17 +12,18 @@
       </mat-chip>
       <input placeholder="Input tag"
              [(ngModel)]="currentTag"
+             [matAutocomplete]="autocomplete"
              (ngModelChange)="onInput()"
              [matChipInputFor]="chipList"
              [matChipInputSeparatorKeyCodes]="[enterCode]"
              (matChipInputTokenEnd)="add($event)">
     </mat-chip-list>
-    <mat-autocomplete (optionSelected)="selected($event)">
+    <mat-autocomplete #autocomplete (optionSelected)="selected($event)">
       <mat-option *ngFor="let tag of availableTags">
-        {{tag}}
+        {{tag.body}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <textarea class="twit-body-input" placeholder="Share your opinion"></textarea>
-  <button type="submit" class="button-post" (click)="postTwit()">Publish</button>
+  <textarea class="twit-body-input" placeholder="Share your opinion" [(ngModel)]="body"></textarea>
+  <button type="submit" class="button-post" (click)="(!isRefactoring) ? postTwit() : updateTwit()">Publish</button>
 </div>

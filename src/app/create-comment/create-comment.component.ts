@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Twit} from '../Models/Twit';
-import {UserHttpService} from '../Services/UserHttpService';
+import {Twit} from '../models/Twit';
+import {UserHttpService} from '../services/UserHttpService';
 
 @Component({
   selector: 'app-create-comment',

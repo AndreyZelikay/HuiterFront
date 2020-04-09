@@ -4,13 +4,12 @@
   <p class="text">{{twit.body}}</p>
   <p class="name">{{twit.owner.name}}</p>
   <p class="tags">{{tagString}}</p>
-  <div class="feedback">
+  <div class="feedback" *ngIf="showFeedBack">
     <button class="feedback-button"><i class="material-icons">arrow_upward</i></button>
     <p class="feedback-counter">{{twit.likes}}</p>
     <button class="feedback-button"><i class="material-icons">arrow_downward</i></button>
     <p class="feedback-counter">{{twit.dislikes}}</p>
     <button class="feedback-button" (click)="onCommentsClick()"><i class="material-icons"> forum </i></button>
-    <p class="feedback-counter">30</p>
   </div>
 </div>
 <div *ngIf="showComments" class="comments">

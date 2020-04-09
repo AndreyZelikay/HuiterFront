@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Twit} from '../Models/Twit';
-import {TapeHttpService} from '../Services/TapeHttpService';
+import {Twit} from '../models/Twit';
+import {TapeHttpService} from '../services/TapeHttpService';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {UserDataProvider} from '../Providers/UserDataProvider';
-import {UserHttpService} from '../Services/UserHttpService';
+import {UserDataProvider} from '../providers/UserDataProvider';
+import {UserHttpService} from '../services/UserHttpService';
 
 @Component({
   selector: 'app-tape',

@@ -21,12 +21,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginComponent} from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {UserDataProvider} from './Providers/UserDataProvider';
-import {AuthGuardService} from './Services/AuthGuardService';
-import {JWT_OPTIONS, JwtModule} from '@auth0/angular-jwt';
-import {AuthInterceptor} from './Interceptors/AuthInterceptor';
+import {UserDataProvider} from './providers/UserDataProvider';
+import {AuthGuardService} from './services/AuthGuardService';
+import {AuthInterceptor} from './interceptors/AuthInterceptor';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CreateTwitComponent } from './create-twit/create-twit.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const appRoutes: Routes = [
   {path: 'tape', component: TapeComponent, canActivate: [AuthGuardService]},
@@ -34,6 +34,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
   {path: 'create-twit', component: CreateTwitComponent, canActivate: [AuthGuardService]},
+  {path: 'refactor-twit/:id', component: CreateTwitComponent, canActivate: [AuthGuardService]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     UserProfileComponent,
     CreateTwitComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

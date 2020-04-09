@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {User} from '../Models/User';
-import {LoginForm} from '../Forms/LoginForm';
+import {User} from '../models/User';
+import {LoginForm} from '../forms/LoginForm';
 
 @Injectable({
   providedIn: 'root'

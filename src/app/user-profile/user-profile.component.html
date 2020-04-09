@@ -7,11 +7,11 @@
 <div *ngIf="user?.twits != null" class="twit-list">
   <div class="twit" *ngFor="let twit of user.twits">
     <div class="twit-body">
-      <app-twit [twit]="twit"></app-twit>
+      <app-twit [twit]="twit" [showFeedBack]="false"></app-twit>
     </div>
     <div class="twit-buttons">
       <button class="button-delete" (click)="onTwitDeleteClick(twit)">Delete</button>
-      <button class="button-refactor">Refactor</button>
+      <button class="button-refactor" [routerLink]="['/refactor-twit', twit.id]">Refactor</button>
     </div>
   </div>
 </div>

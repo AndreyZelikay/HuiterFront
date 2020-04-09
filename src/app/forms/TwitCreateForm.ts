@@ -1,4 +1,4 @@
-import {Tag} from '../Models/Tag';
+import {Tag} from '../models/Tag';
 
 export class TwitCreateForm {
   tags: Tag[];

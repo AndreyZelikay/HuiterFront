@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Twit} from '../Models/Twit';
-import {CommentHttpService} from '../Services/CommentHttpService';
-import {Comment} from '../Models/Comment';
+import {Twit} from '../models/Twit';
+import {CommentHttpService} from '../services/CommentHttpService';
+import {Comment} from '../models/Comment';
 
 @Component({
   selector: 'app-twit',
@@ -14,6 +14,7 @@ export class TwitComponent implements OnInit {
   showComments = false;
   tagString: string;
   @Input() currentUserName: string;
+  @Input() showFeedBack = true;
 
   constructor(private commentHttpService: CommentHttpService) {
   }

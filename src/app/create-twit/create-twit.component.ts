@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {TagHttpService} from '../Services/TagHttpService';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {TagHttpService} from '../services/TagHttpService';
 import {ENTER} from '@angular/cdk/keycodes';
 import {MatAutocompleteSelectedEvent, MatChipInputEvent} from '@angular/material';
-import {TwitHttpService} from '../Services/TwitHttpService';
-import {Twit} from '../Models/Twit';
-import {TwitCreateForm} from '../Forms/TwitCreateForm';
-import {Tag} from '../Models/Tag';
+import {TwitHttpService} from '../services/TwitHttpService';
+import {TwitCreateForm} from '../forms/TwitCreateForm';
+import {Tag} from '../models/Tag';
+import {TwitUpdateForm} from '../forms/TwitUpdateForm';
 
 @Component({
   selector: 'app-create-twit',
@@ -15,24 +15,36 @@ import {Tag} from '../Models/Tag';
 })
 export class CreateTwitComponent implements OnInit {
 
+  isRefactoring = false;
+  twitId: number;
   enterCode: number = ENTER;
   body: string;
   tags: string[] = [];
-  currentTag: string;
-  availableTags: string[] = [];
+  currentTag = '';
+  availableTags: Tag[] = [];
 
   constructor(private router: Router,
               private tagHttpService: TagHttpService,
-              private twitHttpService: TwitHttpService) {
+              private twitHttpService: TwitHttpService,
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
+    const id = this.activatedRoute.snapshot.params.id;
+    if (id != null) {
+      this.twitHttpService.getTwit(id).subscribe((twit) => {
+        this.body = twit.body;
+        this.twitId = twit.id;
+        this.tags = twit.tags.map<string>(value => value.body);
+        this.isRefactoring = true;
+      });
+    }
     this.onInput();
   }
 
   onInput() {
-    this.tagHttpService.getTags(this.currentTag)
-      .subscribe((data) => data.sort(tag => tag.searchCounter).forEach(tag => this.availableTags.push(tag.body)));
+    this.tagHttpService.getTags(this.currentTag || '', 0, 5)
+      .subscribe((data) => this.availableTags = data);
   }
 
   postTwit() {
@@ -46,15 +58,39 @@ export class CreateTwitComponent implements OnInit {
         };
       })
     };
-    this.twitHttpService.postTwit(twit).subscribe((resp) => console.log(resp));
+    this.twitHttpService.postTwit(twit).subscribe((resp) => {
+      if (resp.status === 200) {
+        this.router.navigate(['/profile']);
+      }
+      console.log('resp');
+    });
+  }
+
+  updateTwit() {
+    const twit: TwitUpdateForm = {
+      id: this.twitId,
+      body: this.body,
+      tags: this.tags.map<Tag>(value => {
+        return {
+          id: null,
+          body: value,
+          searchCounter: null
+        };
+      })
+    };
+    this.twitHttpService.updateTwit(twit).subscribe((resp) => {
+      if (resp.status === 200) {
+        this.router.navigate(['/profile']);
+      }
+      console.log('resp');
+    });
   }
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
-    const value = event.value;
 
-    if ((value || '').trim()) {
-      this.tags.push(value.trim());
+    if ((this.currentTag || '').trim()) {
+      this.tags.push(this.currentTag);
     }
 
     if (input) {
@@ -71,6 +107,7 @@ export class CreateTwitComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+    this.currentTag = null;
     this.tags.push(event.option.viewValue);
   }
 
