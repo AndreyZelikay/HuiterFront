@@ -2,6 +2,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Twit} from '../models/Twit';
 import {Injectable} from '@angular/core';
+import {TwitSearchForm} from '../forms/TwitSearchForm';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,7 @@ export class TapeHttpService {
   constructor(private client: HttpClient) {
   }
 
-  getTwits(from: number, to: number, fromDate: Date, untilDate: Date, ownerName: string, tags: string): Observable<Twit[]> {
-    const params = new HttpParams().set('from', from.toString())
-      .set('to', to.toString())
-      .set('fromDate', (fromDate != null) ? fromDate.toUTCString() : '')
-      .set('untilDate', (untilDate != null) ? untilDate.toUTCString() : '')
-      .set('ownerName', (ownerName != null) ? ownerName : '')
-      .set('tags', (tags != null) ? tags : '');
-    return this.client.get<Twit[]>(this.baseUrl + '/getTwits', {params});
+  getTwits(twitSearchFrom: TwitSearchForm): Observable<Twit[]> {
+    return this.client.post<Twit[]>(this.baseUrl + '/getTwits', twitSearchFrom);
   }
 }

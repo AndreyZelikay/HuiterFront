@@ -56,7 +56,8 @@ export class CreateTwitComponent implements OnInit {
           body: value,
           searchCounter: null
         };
-      })
+      }),
+      base64Photos: []
     };
     this.twitHttpService.postTwit(twit).subscribe((resp) => {
       if (resp.status === 200) {
@@ -76,7 +77,8 @@ export class CreateTwitComponent implements OnInit {
           body: value,
           searchCounter: null
         };
-      })
+      }),
+      base64Photos: []
     };
     this.twitHttpService.updateTwit(twit).subscribe((resp) => {
       if (resp.status === 200) {

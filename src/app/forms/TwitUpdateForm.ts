@@ -1,7 +1,8 @@
 import {Tag} from '../models/Tag';
 
 export class TwitUpdateForm {
-  id: number
+  id: number;
   tags: Tag[];
   body: string;
+  base64Photos: string[];
 }

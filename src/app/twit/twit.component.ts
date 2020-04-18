@@ -34,10 +34,10 @@ export class TwitComponent implements OnInit {
 
   postComment(body: string) {
     const comment = new Comment();
-    comment.twit = this.twit;
+    comment.twitId = this.twit.id;
     if (body != null) {
       comment.body = body;
-      this.commentHttpService.createComment(comment).subscribe((data) => this.twit.comments = data);
+      this.commentHttpService.createComment(comment).subscribe((data) => this.twit.comments.push(comment));
     }
   }
 }

@@ -4,5 +4,5 @@ import {Twit} from './Twit';
 export class Comment {
   body: string;
   owner: User;
-  twit: Twit;
+  twitId: number;
 }

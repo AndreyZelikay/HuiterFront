@@ -6,6 +6,8 @@ import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {UserDataProvider} from '../providers/UserDataProvider';
 import {UserHttpService} from '../services/UserHttpService';
+import {TwitSearchForm} from '../forms/TwitSearchForm';
+import {skip} from 'rxjs/operators';
 
 @Component({
   selector: 'app-tape',
@@ -60,12 +62,14 @@ export class TapeComponent implements OnInit {
   }
 
   private search(): Observable<Twit[]> {
-    const from = (this.twits != null) ? this.twits.length : 0;
-    const to = from + 10;
-    return this.tapeHttpService.getTwits(from, to,
-      this.filterForm.get('fromDate').value,
-      this.filterForm.get('untilDate').value,
-      this.filterForm.get('ownerName').value,
-      this.tags);
+    const twitSearchForm: TwitSearchForm = {
+      skip: (this.twits != null) ? this.twits.length : 0,
+      top: 10,
+      ownerName:  this.filterForm.get('ownerName').value,
+      fromDate: this.filterForm.get('fromDate').value,
+      untilDate: this.filterForm.get('untilDate').value,
+      tags: (this.tags != null) ? this.tags.split(' ') : []
+    };
+    return this.tapeHttpService.getTwits(twitSearchForm);
   }
 }

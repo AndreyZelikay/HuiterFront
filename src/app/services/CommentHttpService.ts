@@ -19,8 +19,6 @@ export class CommentHttpService {
   }
 
   createComment(comment: Comment): Observable<Comment[]> {
-    const commentJson = JSON.stringify({body: comment.body,
-    twit: {id: comment.twit.id} });
-    return this.client.post<Comment[]>(this.baseUrl + '/create', commentJson);
+    return this.client.post<Comment[]>(this.baseUrl + '/create', comment);
   }
 }
